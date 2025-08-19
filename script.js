@@ -49,12 +49,6 @@ function makePageForEpisodes(episodeList) {
     // Append episode card to root
     rootElem.appendChild(episodeSection);
   });
-
-  // Footer credit
-  const credit = document.createElement("p");
-  credit.innerHTML = 'Data sourced from <a href="https://www.tvmaze.com/" target="_blank">TVMaze.com</a>.';
-  rootElem.body.document.appendChild(credit);
 }
 
 window.onload = setup;
-
