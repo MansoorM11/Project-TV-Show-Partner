@@ -51,4 +51,5 @@ function makePageForEpisodes(episodeList) {
   });
 }
 
+let searchInput = document.getElementById("q");
 window.onload = setup;
