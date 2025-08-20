@@ -101,7 +101,14 @@ searchInput.addEventListener("input", function () {
 function filterEpisodes(searchValue, allEpisodes) {
   let filterEpisode = allEpisodes.filter(function (episode) {
     let matchedTitle = episode.name.toLowerCase().includes(searchValue);
-    return matchedTitle;
+    let summaryMatch = episode.summary
+      ? episode.summary
+          .replace(/<[^>]*>/g, "") // to remove all  html tags with empty string
+          .toLowerCase()
+          .includes(searchValue)
+      : false;
+
+    return matchedTitle || summaryMatch;
   });
   return filterEpisode;
 }
