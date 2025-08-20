@@ -1,3 +1,63 @@
-#root {
-  color: red;
+/* Root container as grid */
+.episodes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 episodes per row */
+  gap: 20px;
+  /* space between episodes */
+  padding: 10px;
+}
+
+/* Responsive: 2 per row on medium screens */
+@media (max-width: 900px) {
+  .episodes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive: 1 per row on small screens */
+@media (max-width: 600px) {
+  .episodes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Each episode card */
+.episode-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* Images inside cards */
+.episode-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Title */
+.episode-card h3 {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/* Summary */
+.episode-card div {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+/* Link */
+.episode-card a {
+  display: inline-block;
+  margin-top: 5px;
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.episode-card a:hover {
+  text-decoration: underline;
 }
