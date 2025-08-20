@@ -1,6 +1,7 @@
 // Display all episodes on the page
+let allEpisodes = [];
 function setup() {
-  const allEpisodes = getAllEpisodes();
+  allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
 }
 
@@ -51,5 +52,18 @@ function makePageForEpisodes(episodeList) {
   });
 }
 
-let searchInput = document.getElementById("q");
+let searchInput = document.getElementById("search-box");
+searchInput.addEventListener("input", function () {
+  let searchValue = searchInput.value.toLowerCase();
+  let result = filterEpisodes(searchValue, allEpisodes);
+  makePageForEpisodes(result);
+});
+
+function filterEpisodes(searchValue, allEpisodes) {
+  let filterEpisode = allEpisodes.filter(function (episode) {
+    let matchedName = episode.name.toLowerCase().includes(searchValue);
+    return matchedName;
+  });
+  return filterEpisode;
+}
 window.onload = setup;
