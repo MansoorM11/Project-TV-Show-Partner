@@ -61,8 +61,8 @@ searchInput.addEventListener("input", function () {
 
 function filterEpisodes(searchValue, allEpisodes) {
   let filterEpisode = allEpisodes.filter(function (episode) {
-    let matchedName = episode.name.toLowerCase().includes(searchValue);
-    return matchedName;
+    let matchedTitle = episode.name.toLowerCase().includes(searchValue);
+    return matchedTitle;
   });
   return filterEpisode;
 }
