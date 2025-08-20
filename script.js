@@ -3,6 +3,7 @@ let allEpisodes = [];
 function setup() {
   allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
+  fillTitleDropdown(allEpisodes);
 }
 
 function makePageForEpisodes(episodeList) {
@@ -56,6 +57,39 @@ function makePageForEpisodes(episodeList) {
     rootElem.appendChild(episodeSection);
   });
 }
+
+function fillTitleDropdown(allEpisodes) {
+  let selectElem = document.getElementById("title-select");
+  selectElem.innerHTML = ""; // clear any existing option
+
+  let showAllOption = document.createElement("option");
+  showAllOption.value = "all";
+  showAllOption.textContent = "Show All Episodes";
+  selectElem.appendChild(showAllOption);
+  // creating an option for each episode
+  allEpisodes.forEach(function (episode) {
+    let seasonStr = String(episode.season).padStart(2, "0");
+    let numberStr = String(episode.number).padStart(2, "0");
+    let option = document.createElement("option");
+    option.value = episode.id;
+    option.textContent = `S${seasonStr}E${numberStr} - ${episode.name}`;
+    selectElem.appendChild(option);
+  });
+}
+
+const selectElem = document.getElementById("title-select");
+selectElem.addEventListener("change", function () {
+  const titleSelected = this.value;
+
+  if (titleSelected === "all") {
+    makePageForEpisodes(allEpisodes);
+  } else {
+    const episodeSelected = allEpisodes.find(function (title) {
+      return title.id == titleSelected;
+    });
+    makePageForEpisodes([episodeSelected]);
+  }
+});
 
 let searchInput = document.getElementById("search-box");
 searchInput.addEventListener("input", function () {
