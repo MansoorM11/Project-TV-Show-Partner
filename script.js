@@ -9,6 +9,11 @@ function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById("root");
   rootElem.textContent = ""; // Clear any existing text
 
+  // display the titles count text
+
+  let countElem = document.getElementById("title-count");
+  countElem.textContent = `Displaying ${episodeList.length} / ${allEpisodes.length} episodes`;
+
   // Add a class for CSS grid
   rootElem.className = "episodes-grid";
 
