@@ -66,7 +66,7 @@ function fillTitleDropdown(allEpisodes) {
   showAllOption.value = "all";
   showAllOption.textContent = "Show All Episodes";
   selectElem.appendChild(showAllOption);
-  // creating an option for each episode
+  // creating one option for each episode
   allEpisodes.forEach(function (episode) {
     let seasonStr = String(episode.season).padStart(2, "0");
     let numberStr = String(episode.number).padStart(2, "0");
