@@ -1,10 +1,11 @@
 /* Root container as grid */
 .episodes-grid {
   display: grid;
+  
   grid-template-columns: repeat(3, 1fr);
-  /* 3 episodes per row */
+  
   gap: 20px;
-  /* space between episodes */
+  
   padding: 10px;
 }
 
@@ -61,3 +62,4 @@
 .episode-card a:hover {
   text-decoration: underline;
 }
+
