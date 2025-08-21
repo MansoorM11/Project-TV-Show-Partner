@@ -41,13 +41,13 @@ function fetchAllShows() {
       }
     })
     .catch(function (error) {
-      // show error if shows failed to appear in dropdown ?
+      // show error if shows failed to appear in dropdown
       showSelect.innerHTML = `<option value = "">Error loading shows</option>`;
       console.error("Fetch error:", error);
     });
 }
 
-// When the show dropdown changes, fetch or use cached episodes - why ?
+// When the show dropdown changes, fetch or use cached episodes
 document.getElementById("select-show").addEventListener("change", function () {
   const showId = this.value;
   if (!showId) return; // do nothing if no show selected
